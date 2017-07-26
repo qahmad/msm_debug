@@ -19,7 +19,7 @@ class ActorsController < ApplicationController
 
     @actor.save
 
-    render("actors/index.html.erb")
+    render("show")
   end
 
   def edit_form
