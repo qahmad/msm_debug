@@ -1,6 +1,6 @@
 class ActorsController < ApplicationController
   def index
-    @actors = Actor.all
+    @actors = Actor.all.order('created_at DESC')
   end
 
   def show
@@ -19,7 +19,7 @@ class ActorsController < ApplicationController
 
     @actor.save
 
-    render("show")
+    render("actors/index.html.erb")
   end
 
   def edit_form
@@ -36,7 +36,7 @@ class ActorsController < ApplicationController
 
     @actor.save
 
-    render("show")
+    redirect_to("/actors/" + @actor.id.to_s)
   end
 
   def destroy
